@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول - Nayef NET</title>
+    <style>
+        /* الخطوط */
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap');
+        
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(135deg, #1f1c2c, #090909);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            padding-top: 30px; /* زيادة مسافة علوية */
+            padding-bottom: 50px;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 95%;
+            max-width: 440px; /* زيادة بسيطة للعرض */
+            background-color: #24243e;
+            border-radius: 25px; /* حواف أكثر استدارة */
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9); /* ظل أعمق */
+            overflow: hidden;
+            border: 2px solid #5a5a8a; /* حد خارجي أوضح */
+        }
+
+        /* رأس الصفحة */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+            background-color: #1e1e35;
+            color: #ccc;
+        }
+
+        .header-title {
+            font-size: 1.2em;
+            font-weight: 900; /* خط أكثر سمكاً */
+            letter-spacing: 0.5px;
+        }
+
+        .header-icons span {
+            font-size: 1.6em; /* أيقونات أكبر */
+            color: #ffcc00;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        /* بطاقة تسجيل الدخول */
+        .card {
+            padding: 30px; /* زيادة المسافة الداخلية */
+            text-align: center;
+        }
+
+        .network-name {
+            color: #ffeb3b;
+            font-size: 2em; /* اسم أكبر للشبكة */
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 235, 59, 0.6);
+        }
+
+        .speed-info {
+            background: linear-gradient(90deg, #6a1b9a, #d81b60); /* تدرج أزهى قليلاً */
+            color: #ffffff;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-size: 1.1em;
+            font-weight: 700;
+            margin: 0 auto 35px; /* زيادة المسافة السفلية */
+            display: inline-block;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+        }
+
+        .dropdown-placeholder {
+            padding: 16px;
+            background-color: #3f3f6f;
+            color: #e0e0e0;
+            border: 1px solid #7986cb; /* حد أزرق فاتح */
+            border-radius: 12px;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        /* حقل الإدخال */
+        .input-field {
+            width: 100%;
+            padding: 18px; /* حقل إدخال أكبر */
+            margin-bottom: 30px;
+            background-color: #1e1e35;
+            color: #ffffff;
+            border: 3px dashed #ffcc00; /* حدود أسمك */
+            border-radius: 35px;
+            box-sizing: border-box;
+            font-size: 1.2em;
+        }
+
+        /* زر تسجيل الدخول */
+        .login-button {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(90deg, #ff8c00, #ff4500); /* تدرج برتقالي/أحمر أقوى */
+            color: #ffffff;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.4em;
+            font-weight: 900;
+            box-shadow: 0 8px 25px rgba(255, 69, 0, 0.6);
+        }
+
+        .login-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 69, 0, 0.8);
+        }
+
+        /* قسم الاتصال */
+        .contact-info {
+            text-align: center;
+            font-size: 1em;
+            padding: 25px 30px;
+            line-height: 2; /* مسافة بين السطور أكبر */
+            background-color: #1e1e35;
+        }
+
+        /* فاصل */
+        .separator {
+            border: none;
+            height: 2px; /* فاصل أسمك */
+            background: linear-gradient(to right, #24243e, #4a148c, #24243e); /* فاصل بتدرج */
+            margin: 0 25px;
+        }
+
+        /* قسم الباقات */
+        .packages-section {
+            padding-bottom: 30px;
+        }
+
+        .packages-title {
+            background-color: #4a148c;
+            color: #ffffff;
+            padding: 15px 0;
+            text-align: center;
+            font-size: 1.4em;
+            font-weight: 900;
+            margin: 25px 30px 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* تحسينات الجدول (مهم) */
+        .packages-table {
+            width: calc(100% - 60px); /* عرض مناسب مع هامش */
+            margin: 0 30px;
+            border-collapse: separate;
+            border-spacing: 0;
+            color: #fff;
+            font-size: 1em;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .packages-table th, .packages-table td {
+            border: none; /* إزالة الحدود الداخلية */
+            padding: 15px 8px; /* زيادة المسافة الداخلية */
+            vertical-align: middle;
+        }
+
+        .packages-table th {
+            background-color: #3f3f6f;
+            font-weight: 700;
+            border-bottom: 2px solid #5a5a8a; /* خط فاصل واضح أسفل الرأس */
+        }
+        
+        .packages-table tr:nth-child(even) {
+            background-color: #2b2b4d;
+        }
+        .packages-table tr:nth-child(odd) {
+            background-color: #333366;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <span style="font-size: 1.5em;">☰</span> <div class="header-title">سجل الدخول إلى **Nayef NET**</div>
+            <div class="header-icons">
+                <span>📍</span>
+                <span>💬</span>
+                <span>💲</span>
+            </div>
+        </div>
+        
+        <div class="card">
+            <div class="network-name">شبكة **نايف نت**</div>
+            <div class="speed-info">
+                <span style="color: #ff00ff; font-weight: bold; margin-left: 5px;">🔥 NEW</span>
+                <span>باقة سرعات تناسب جميع الأحجام</span>
+            </div>
+            
+            <div class="dropdown-placeholder">
+                ⇩ اضغط هنا لتبديل السرعة الى تناسبك
+            </div>
+
+            <input type="text" class="input-field" placeholder="اسم المستخدم">
+            
+            <div class="remember-me">
+                <span>تذكرني</span>
+                <div class="toggle-switch active">
+                    <div class="slider"></div>
+                </div>
+            </div>
+
+            <button class="login-button" onclick="alert('جاري تسجيل الدخول...')">
+                تسجيل الدخول
+            </button>
+        </div>
+        
+        <div class="contact-info">
+            للاستفسار تواصل معنا عبر الأرقام التالية<br>
+            <span class="contact-numbers">776247275 -- 717832987</span><br>
+            للوصول للصفحة والرصيد اكتب بمتصفح جوالك الآتي<br>
+            <a href="http://n.com">n.com</a>
+        </div>
+        
+        <hr class="separator">
+
+        <div class="packages-section">
+            <div class="packages-title">باقات شبكة **نايف نت**</div>
+            
+            <table class="packages-table">
+                <thead>
+                    <tr>
+                        <th>السعر</th>
+                        <th>الوقت</th>
+                        <th>الصلاحية</th>
+                        <th>التحميل</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>100</td><td>مفتوح</td><td>يوم</td><td>250 ميجا</td></tr>
+                    <tr><td>150</td><td>مفتوح</td><td>2 أيام</td><td>400 ميجا</td></tr>
+                    <tr><td>300</td><td>مفتوح</td><td>4 أيام</td><td>1000 ميجا</td></tr>
+                    <tr><td>1000</td><td>مفتوح</td><td>30 يوم</td><td>4000 ميجا</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    <script>
+        document.querySelector('.toggle-switch').addEventListener('click', function() {
+            this.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
